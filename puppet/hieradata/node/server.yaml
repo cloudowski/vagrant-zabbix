@@ -1,0 +1,8 @@
+---
+role:
+    - role::zabbix
+profile::base::packages:
+    - vim-enhanced
+    - tcpdump
+    - mc
+    - httpd

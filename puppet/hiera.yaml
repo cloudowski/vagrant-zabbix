@@ -1,0 +1,8 @@
+---
+:backends:
+    - yaml
+:yaml:
+    :datadir: /vagrant/puppet/hieradata
+:hierarchy:
+    - "node/%{::hostname}"
+    - common

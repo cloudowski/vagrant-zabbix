@@ -1,0 +1,19 @@
+#splunk::params::version: '6.2.1'
+#splunk::params::build: '245427'
+splunk::params::version: '6.0.7'
+splunk::params::build: '241889'
+splunk::params::src_root: '/vagrant/splunk'
+splunk::params::listen: '0.0.0.0'
+splunk::forwarder::server: '192.168.34.100'
+
+postgresql::globals::version: '9.3'
+postgresql::globals::manage_package_repo: true
+postgresql::globals::needs_initdb: true
+
+postgresql::server::needs_initdb: true
+postgresql::server::ip_mask_deny_postgres_user: '0.0.0.0/32'
+postgresql::server::ip_mask_allow_all_users: '0.0.0.0/0'
+postgresql::server::listen_addresses: '*'
+postgresql::server::postgres_password: 'librevo'
+
+
