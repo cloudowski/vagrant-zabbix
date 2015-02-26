@@ -1,8 +1,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-require 'yaml'
-cfg = YAML::load_file("config.yml")
+#require 'yaml'
+#cfg = YAML::load_file("config.yml")
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
