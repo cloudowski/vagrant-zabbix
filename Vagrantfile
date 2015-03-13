@@ -10,7 +10,8 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
-  config.vm.box = "puppetlabs/centos-6.6-64-puppet"
+  #config.vm.box = "puppetlabs/centos-6.6-64-puppet"
+  config.vm.box = "baremettle/centos-6.5"
     
 #  config.vm.box = "puppetlabs/ubuntu-14.04-64-puppet"
     if Vagrant.has_plugin?("vagrant-cachier")
@@ -23,15 +24,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 
   config.vm.provision :shell, :path => "scripts/common.sh"
+  config.vm.provision :shell, :path => "scripts/puppet.sh"
   config.vm.provision :shell, :path => "scripts/puppet-modules.sh"
 
-#  config.vm.synced_folder '.', '/vagrant', type: 'nfs'
 
   config.vm.provision "puppet" do |puppet|
       puppet.hiera_config_path= "puppet/hiera.yaml"
       puppet.working_directory = "/tmp/vagrant-puppet/"
       puppet.manifests_path = "puppet/manifests"
       puppet.module_path = "puppet/modules"
+      #puppet.options = "--verbose --debug"
+      puppet.options = "--verbose"
   end
 
   config.vm.define "server", autostart: true do |host|
@@ -40,6 +43,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       host.vm.hostname = "server.test.lvo"
   end
 
+#  config.vm.synced_folder '.', '/vagrant', type: 'nfs'
   #config.vm.synced_folder '.', '/vagrant', type: 'rsync'
 
 end
