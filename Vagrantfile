@@ -10,17 +10,17 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
-  #config.vm.box = "puppetlabs/centos-6.6-64-puppet"
+#config.vm.box = "puppetlabs/centos-6.6-64-puppet"
+#config.vm.box = "puppetlabs/ubuntu-14.04-64-puppet"
   config.vm.box = "baremettle/centos-6.5"
     
-#  config.vm.box = "puppetlabs/ubuntu-14.04-64-puppet"
-    if Vagrant.has_plugin?("vagrant-cachier")
-        config.cache.scope = :box
-        config.cache.synced_folder_opts = {
-            type: :nfs,
-            mount_options: ['rw', 'vers=3', 'tcp', 'nolock']
-        }
-    end
+#    if Vagrant.has_plugin?("vagrant-cachier")
+#        config.cache.scope = :box
+#        config.cache.synced_folder_opts = {
+#            type: :nfs,
+#            mount_options: ['rw', 'vers=3', 'tcp', 'nolock']
+#        }
+#    end
 
 
   config.vm.provision :shell, :path => "scripts/common.sh"

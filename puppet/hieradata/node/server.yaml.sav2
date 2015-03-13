@@ -1,7 +1,0 @@
----
-role:
-    - role::base
-profile::base::packages:
-    - vim-enhanced
-    - tcpdump
-    - mc
