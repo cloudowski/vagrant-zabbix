@@ -38,9 +38,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.define "server", autostart: true do |host|
-#      host.vm.box = "puppetlabs/centos-7.0-64-puppet"
       host.vm.network "private_network", ip: "192.168.34.120"
       host.vm.hostname = "server.test.lvo"
+  end
+  config.vm.define "proxy", autostart: false do |host|
+      host.vm.network "private_network", ip: "192.168.34.121"
+      host.vm.hostname = "proxy.test.lvo"
   end
 
 #  config.vm.synced_folder '.', '/vagrant', type: 'nfs'

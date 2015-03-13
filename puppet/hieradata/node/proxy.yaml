@@ -1,0 +1,14 @@
+---
+role:
+    - role::zabbixproxy
+profile::base::packages:
+    - vim-enhanced
+    - tcpdump
+    - mc
+
+zabbix::zabbix_url: 'server.test.lvo'
+zabbix::agent::listenip: '192.168.34.121'
+zabbix::agent::server: '127.0.0.1,192.168.34.121'
+zabbix::agent::serveractive: '192.168.34.121'
+zabbix::agent::monitored_by_proxy: 'proxy.test.lvo'
+zabbix::proxy::zabbix_server_host: '192.168.34.120'
