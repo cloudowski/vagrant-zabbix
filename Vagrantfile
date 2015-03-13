@@ -10,7 +10,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
-  config.vm.box = "puppetlabs/centos-6.5-64-puppet"
+  config.vm.box = "puppetlabs/centos-6.6-64-puppet"
     
 #  config.vm.box = "puppetlabs/ubuntu-14.04-64-puppet"
     if Vagrant.has_plugin?("vagrant-cachier")
