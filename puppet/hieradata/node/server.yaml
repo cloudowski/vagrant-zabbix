@@ -6,5 +6,5 @@ profile::base::packages:
     - tcpdump
     - mc
 
-zabbix::zabbix_url: 'server.test.lvo'
+zabbix::zabbix_url: 'localhost'
 zabbix::agent::listenip: '127.0.0.1'

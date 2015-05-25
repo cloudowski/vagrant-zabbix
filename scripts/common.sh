@@ -13,3 +13,8 @@ cat << EOF > /root/.mc/ini
 [Midnight-Commander]
 navigate_with_arrows=1
 EOF
+
+echo "Enabling SElinux rules for zabbix"
+setsebool -P httpd_can_network_connect_db on
+setsebool -P httpd_can_network_connect on
+
