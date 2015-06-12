@@ -1,17 +1,41 @@
 # Vagrant for Zabbix
 
-This Vagrant configuration can be used for quick testing purposes of Zabbix infrastructure. All systems are based on **CentOS 6.6** (see Vagrantfile).
+This Vagrant configuration can be used for quick testing purposes of Zabbix infrastructure. All systems are based on **CentOS 7** (see Vagrantfile).
 
-It builds the following virtual machines:
-  * **server** - Zabbix server
-  * **proxy** - Zabbix proxy (not starting by default)
+# Requirements
+  * **Vagrant** (can be downloaded from [here](https://www.vagrantup.com/downloads.html))
+  * **VirtualBox**
+  * *(optionally)* **libvirt and KVM** (for advanced users)
 
-After installation systems are ready to use (see below).
+# Usage
+
+Just use vagrant to start zabbix server. From inside directory where you cloned this repository run the following command
+```
+vagrant up
+```
+
+After machine finished provisioning Zabbix you can access web interface using
+
+**[http://localhost:8080/](http://localhost:8080)**.
+
+with default login and password:
+  * login: **Admin**  - just make sure you write uppercase *A* :-)
+  * password: **zabbix**
 
 
-# Zabbix server
-Details:
-  * Hostname: **server.test.lvo**
-  * Zabbix components installed: **server 2.2**, **agent 2.2**
-  * Database: **Postgresql** (access for zabbix - login:zabbix, password:zabbix)
-  * Frontend access: **[http://localhost:8080/](http://localhost:8080)** (using port forwarding)
+# Advanced topics
+
+### libvirt
+You can run this machine using libvirt and KVM hypervisor. You need to install **libvirt** plugin for Vagrant first:
+```
+vagrant plugin install vagrant-libvirt
+```
+
+After that just launch machine using libvirt provider:
+
+```
+vagrant up --provider=libvirt
+```
+
+### Change ports
+If you need to change ports on your host just edit Vagrantfile and replace *forwarded_port* stanza.
