@@ -9,7 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
   config.vm.box = "centos/7"
   # disabled builtin rsync direcotry in centos/7 box
-  config.vm.synced_folder ".", "/home/vagrant/sync", type: "rsync"
+  config.vm.synced_folder ".", "/home/vagrant/sync", type: "rsync", disabled: true
     
   config.vm.provision :shell, :path => "scripts/common.sh"
   config.vm.provision :shell, :path => "scripts/puppet.sh"
