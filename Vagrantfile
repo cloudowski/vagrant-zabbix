@@ -7,7 +7,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
-  config.vm.box = "centos/7"
+  config.vm.box = "puppetlabs/centos-7.0-64-puppet"
   # disabled builtin rsync direcotry in centos/7 box
   config.vm.synced_folder ".", "/home/vagrant/sync", type: "rsync", disabled: true
     

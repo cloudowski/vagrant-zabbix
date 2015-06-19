@@ -14,7 +14,9 @@ cat << EOF > /root/.mc/ini
 navigate_with_arrows=1
 EOF
 
-echo "Enabling SElinux rules for zabbix"
-setsebool -P httpd_can_network_connect_db on
-setsebool -P httpd_can_network_connect on
+if sestatus|grep -q 'SELinux status:.*enabled';then
+    echo "Enabling SElinux rules for zabbix"
+    setsebool -P httpd_can_network_connect_db on
+    setsebool -P httpd_can_network_connect on
+fi
 
