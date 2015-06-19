@@ -8,6 +8,8 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
   config.vm.box = "centos/7"
+  # disabled builtin rsync direcotry in centos/7 box
+  config.vm.synced_folder ".", "/home/vagrant/sync", type: "rsync"
     
   config.vm.provision :shell, :path => "scripts/common.sh"
   config.vm.provision :shell, :path => "scripts/puppet.sh"
@@ -31,6 +33,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
 #  config.vm.synced_folder '.', '/vagrant', type: 'nfs'
-  config.vm.synced_folder '.', '/vagrant', type: 'rsync'
+#  config.vm.synced_folder '.', '/vagrant', type: 'rsync'
 
 end
