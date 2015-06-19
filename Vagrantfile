@@ -32,7 +32,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       host.vm.hostname = "server.test.lvo"
   end
 
-#  config.vm.synced_folder '.', '/vagrant', type: 'nfs'
 #  config.vm.synced_folder '.', '/vagrant', type: 'rsync'
+  config.vm.synced_folder '.', '/vagrant'
 
 end
