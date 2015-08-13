@@ -1,3 +1,3 @@
 #!/bin/bash
 
-puppet module install wdijkerman-zabbix
+puppet module install --modulepath '$basemodulepath' wdijkerman-zabbix

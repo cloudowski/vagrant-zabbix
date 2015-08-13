@@ -8,9 +8,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
   config.vm.box = "puppetlabs/centos-7.0-64-puppet"
-  # force version 1.0.1 with puppet 3.X - newer includes 4.2 with parser incompatible with vagrant :(
-  config.vm.box_version = "1.0.1"
-  config.vm.box_check_update = false
+  
   # disabled builtin rsync direcotry in centos/7 box
   config.vm.synced_folder ".", "/home/vagrant/sync", type: "rsync", disabled: true
     
@@ -22,8 +20,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "puppet" do |puppet|
       puppet.hiera_config_path= "puppet/hiera.yaml"
       puppet.working_directory = "/tmp/vagrant-puppet/"
-      puppet.manifests_path = "puppet/manifests"
-      puppet.module_path = "puppet/modules"
+      puppet.environment = "puppet"
+      puppet.environment_path = "."
       #puppet.options = "--verbose --debug"
       puppet.options = "--verbose"
   end
