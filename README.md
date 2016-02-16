@@ -1,6 +1,7 @@
 # Vagrant for Zabbix
 
 This Vagrant configuration can be used for quick testing purposes of Zabbix infrastructure. All systems are based on **CentOS 7** (see Vagrantfile).
+Current version supports also Zabbix in newest version **3.0**!
 
 # Requirements
   * **Vagrant** (can be downloaded from [here](https://www.vagrantup.com/downloads.html))

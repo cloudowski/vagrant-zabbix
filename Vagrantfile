@@ -9,12 +9,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
   config.vm.box = "puppetlabs/centos-7.0-64-puppet"
   
-  # disabled builtin rsync direcotry in centos/7 box
+  # disabled builtin rsync directory in centos/7 box
   config.vm.synced_folder ".", "/home/vagrant/sync", type: "rsync", disabled: true
     
   config.vm.provision :shell, :path => "scripts/common.sh"
   config.vm.provision :shell, :path => "scripts/puppet.sh"
   config.vm.provision :shell, :path => "scripts/puppet-modules.sh"
+  config.vm.provision :shell, :path => "scripts/puppet-modules3.sh"
 
 
   config.vm.provision "puppet" do |puppet|
