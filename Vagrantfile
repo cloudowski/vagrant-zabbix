@@ -4,6 +4,7 @@
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
+Vagrant.require_version ">= 1.8.6"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
