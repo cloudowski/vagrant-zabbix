@@ -8,7 +8,7 @@ Vagrant.require_version ">= 1.8.6"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
-  config.vm.box = "puppetlabs/centos-7.2-64-puppet"
+  config.vm.box = "puppetlabs/centos-7.2-64-nocm"
 #  config.vm.box = "puppetlabs/ubuntu-14.04-64-puppet"
   
   # disabled builtin rsync directory in centos/7 box
@@ -17,7 +17,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, :path => "scripts/common.sh"
   config.vm.provision :shell, :path => "scripts/puppet.sh"
   config.vm.provision :shell, :path => "scripts/puppet-modules.sh"
-  config.vm.provision :shell, :path => "scripts/puppet-modules3.sh"
 
 
   config.vm.provision "puppet" do |puppet|
@@ -35,6 +34,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       config.vm.network "forwarded_port", guest: 10051, host: 10051
       host.vm.hostname = "server.test.lvo"
   end
+  config.vm.provision :shell, :path => "scripts/fix-config.sh"
 
 #  config.vm.synced_folder '.', '/vagrant', type: 'rsync'
   config.vm.synced_folder '.', '/vagrant'

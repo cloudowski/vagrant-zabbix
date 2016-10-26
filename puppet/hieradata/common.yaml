@@ -1,12 +1,12 @@
-zabbix::zabbix_version: '3.0'
+zabbix::zabbix_version: '3.2'
 zabbix::database_type: 'postgresql'
 zabbix::zabbix_timezone: 'Europe/Warsaw'#
 
-zabbix::repo::zabbix_version: '3.0'
-zabbix::server::zabbix_version: '3.0'
-zabbix::agent::zabbix_version: '3.0'
-zabbix::web::zabbix_version: '3.0'
+zabbix::repo::zabbix_version: '3.2'
+zabbix::server::zabbix_version: '3.2'
+zabbix::agent::zabbix_version: '3.2'
+zabbix::web::zabbix_version: '3.2'
 
-zabbix::proxy::zabbix_version: '3.0'
+zabbix::proxy::zabbix_version: '3.2'
 zabbix::proxy::database_type: 'mysql'
 zabbix::proxy::configfrequency: '120'
